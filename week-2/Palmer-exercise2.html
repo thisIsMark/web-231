@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+
+<!--
+ =============================================
+  Title: Assignment 2.2 - Hello JavaScript 
+  Author: Mark Palmer 
+  Date: 1/13/2021 
+  Description:
+=============================================
+-->
+
+
+<!-- This is the HTML for the webapp -->
+
+<div id="container">
+<h1>Exercise 2.2 - Hello JavaScript</h1>
+
+<button id="btnMyCourse" onclick="alertFunction()">What course am I taking?</button>
+
+<p id="txtMyWorld"></p>
+
+<a href="C:\Users\marki\Desktop\Development\buwebdev\web-231\week-1\index.html" class="return-home">Return</a>
+</div>
+
+<!-- JavaScript controlling the p and button tags by id -->
+<script>
+    document.getElementById("btnMyCourse").addEventListener("click", function() {
+    document.getElementById("txtMyWorld").innerHTML = "Welcome to Mark Palmer's world.";
+});
+// Alert function for btnMyCourse onclick
+function alertFunction() {
+            alert("Web 231 - Enterprise JavaScript");
+        }
+</script>
