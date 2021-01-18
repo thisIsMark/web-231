@@ -1,0 +1,33 @@
+/**
+    Title: payroll.css
+    Author: Mark Palmer
+    Date: 1/16/2021
+    Description: Styling for the payroll.html file
+*/
+
+/** 
+    Styling for the lists in payroll.html
+*/
+
+body {
+  font-family: "Oswald", sans-serif;
+}
+
+#container {
+  margin-top: 50px;
+  margin-left: 100px;
+  margin-right: 100px;
+}
+
+h1,
+h2,
+h3 {
+  background-color: #3c275a;
+  color: white;
+  border: 1px solid #d6a800;
+  padding: 10px;
+}
+
+ul {
+  border: 1px solid red;
+}

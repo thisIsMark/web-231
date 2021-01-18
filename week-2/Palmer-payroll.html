@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+
+<!--
+ =============================================
+  Title: payroll.html
+  Author: Mark Palmer 
+  Date: 1/16/2021 
+  Description: Payroll App
+=============================================
+-->
+
+<html lang="en">
+  <head>
+      <title>Payroll App</title>
+    <link
+    href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&display=swap"
+    rel="stylesheet"
+  />
+    <link href="site.css" type="text/css" rel="stylesheet" />
+    <link href="Palmer-payroll.css" type="text/css" rel="stylesheet" />
+  </head>
+
+
+<!-- HTML for the Payroll App -->
+<body>
+<div id="container">
+<h1 id="payroll-header">Payroll System</h1>
+
+<!-- First employee list -->
+<h3>Employee record 1</h3>
+<ul>
+    <li id="txtFirstNameLudwig"></li>
+    <li id="txtLastNameBeethoven"></li>
+    <li id="txtAddressLudwig"></li>
+    <li id="txtHireDateLudwig"></li>
+    <li id="txtPayRateLudwig"></li>
+</ul>
+
+<!-- The logic for the first list -->
+<script>
+    const ludwigFirstName = "Ludwig";
+    const ludwigLastName = "Beethoven"
+    const ludwigAddress = "505 Main Street"
+    const ludwigHireDate = new Date(2020, 12, 9).toLocaleDateString("en-US");
+    let   ludwigPayRate = (18.9).toFixed(1);
+
+    document.getElementById("txtFirstNameLudwig").innerHTML = ludwigFirstName;
+    document.getElementById("txtLastNameBeethoven").innerHTML = ludwigLastName;
+    document.getElementById("txtAddressLudwig").innerHTML = ludwigAddress;
+    document.getElementById("txtHireDateLudwig").innerHTML = ludwigHireDate;
+    document.getElementById("txtPayRateLudwig").innerHTML = ludwigPayRate;
+
+</script>
+
+<!-- Second employee list -->
+<h3>Employee record 2</h3>
+<ul>
+    <li id="txtFirstNameJ"></li>
+    <li id="txtLastNameJ"></li>
+    <li id="txtAddressJ"></li>
+    <li id="txtHireDateJ"></li>
+    <li id="txtPayRateJ"></li>
+</ul>
+
+<!-- Logic for the second list -->
+<script>
+    const jFirstName = "Johann";
+    const JLastName = "Bach"
+    const jAddress = "512 Main Street"
+    const jHireDate = new Date(2020, 12, 9).toLocaleDateString("en-US");
+    let   jPayRate = (25.5).toFixed(1);
+
+    document.getElementById("txtFirstNameJ").innerHTML = jFirstName;
+    document.getElementById("txtLastNameJ").innerHTML = JLastName;
+    document.getElementById("txtAddressJ").innerHTML = jAddress;
+    document.getElementById("txtHireDateJ").innerHTML = jHireDate;
+    document.getElementById("txtPayRateJ").innerHTML = jPayRate;
+    
+</script>
+
+<!-- Last employee list -->
+<h3>Employee record 3</h3>
+<ul>
+    <li id="txtFirstNameW"></li>
+    <li id="txtLastNameW"></li>
+    <li id="txtAddressW"></li>
+    <li id="txtHireDateW"></li>
+    <li id="txtPayRateW"></li>
+</ul>
+
+<!-- Logic for the second list -->
+<script>
+    const wFirstName = "Wolfgang";
+    const wLastName = "Mozart"
+    const wAddress = "600 Main Street"
+    const wHireDate = new Date(2020, 12, 9).toLocaleDateString("en-US");
+    let   wPayRate = (50.1).toFixed(1);
+
+    document.getElementById("txtFirstNameW").innerHTML = wFirstName;
+    document.getElementById("txtLastNameW").innerHTML = wLastName;
+    document.getElementById("txtAddressW").innerHTML = wAddress;
+    document.getElementById("txtHireDateW").innerHTML = wHireDate;
+    document.getElementById("txtPayRateW").innerHTML = wPayRate;
+    
+</script>
+
+<!-- A link back to the landing page -->
+<a href="../week-1/index.html" class="return-home">Return</a>
+</div>
+</body>
