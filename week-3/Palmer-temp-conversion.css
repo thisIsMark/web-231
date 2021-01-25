@@ -1,0 +1,15 @@
+/**
+     Title: Palmer-temp-conversion.css
+     Author: Mark Palmer
+     Date: 01/22/2021
+     Description: Styling for the Palmer-temp-conversion.html file
+*/
+
+body {
+  font-family: "Oswald", sans-serif;
+}
+
+#conversion {
+  font-size: 28px;
+  text-align: center;
+}

@@ -1,0 +1,59 @@
+<!--
+ =============================================
+  Title: Palmer-temp-conversion.html
+  Author: Mark Palmer 
+  Date: 1/16/2021 
+  Description: Temperature conversion app
+=============================================
+-->
+
+<html lang="en">
+  <head>
+      <title>Temperature Conversion App</title>
+    <link
+    href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&display=swap"
+    rel="stylesheet"
+  />
+    <link href="Palmer-temp-conversion.css" type="text/css" rel="stylesheet" />
+    <link href="../global.css" type="text/css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+  </head>
+
+  <body>
+    
+    <div id="container">
+        <h1>Welcome to the Temperature Conversion App!</h1>
+        <div id="card">
+
+        <div id="card-title">Fahrenheit to Celsius Converter</div>
+
+            <div class="form-field">
+            <label for="txtFahrenheit">Fahrenheit value</label>
+            <input
+              type="text"
+              id="txtFahrenheit"
+              name="txtFahrenheit"
+              class="input"
+            />
+            </div>
+            <div class="form-field">
+                <button onclick="temp()" type="submit" class="btn btn-primary full-width">
+                Convert Temperature
+                </button>
+            </div> 
+
+        </div>
+
+        <script>
+            function temp() {
+                var fahrenheit = document.getElementById("txtFahrenheit").value;
+                document.getElementById("conversion").innerHTML = ((parseFloat(fahrenheit) - 32) / 1.8).toFixed(2);
+            }
+        </script>
+
+        <div id="card">
+            <div id="card-title">Conversion Results</div>
+            <p id="conversion"></p>
+        </div>
+    </div>
+  </body>
