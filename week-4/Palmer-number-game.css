@@ -1,0 +1,15 @@
+/**
+     Title: Palmer-number-game.css
+     Author: Mark Palmer
+     Date: 01/29/2021
+     Description: Styling for the Palmer-number-game.html file
+*/
+
+body {
+  font-family: "Oswald", sans-serif;
+}
+
+#result {
+  font-size: 28px;
+  text-align: center;
+}

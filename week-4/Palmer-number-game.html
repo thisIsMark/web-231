@@ -1,0 +1,77 @@
+<!--
+ =============================================
+  Title: Palmer-number-game.html
+  Author: Mark Palmer 
+  Date: 1/29/2021 
+  Description: Number Game App
+=============================================
+-->
+
+<html lang="en">
+  <head>
+      <title>Number Game App</title>
+    <link
+    href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&display=swap"
+    rel="stylesheet"
+  />
+    <link href="Palmer-number-game.css" type="text/css" rel="stylesheet" />
+    <link href="../global.css" type="text/css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+  </head>
+
+  <body>
+    
+    <div id="container">
+        <h1>Welcome to the Numbers App!</h1>
+        <div id="card">
+
+        <div id="card-title">Pick a number between 1 and 10</div>
+
+            <div class="form-field">
+            <label for="txtMyNumber">Guess the number</label>
+            <input
+              type="text"
+              id="txtMyNumber"
+              name="txtMyNumber"
+              class="input"
+            />
+            </div>
+            <div class="form-field">
+                <button onclick="number()" type="submit" class="btn btn-primary full-width">
+                Submit
+                </button>
+            </div> 
+
+        </div>
+
+        <script>
+            function number() {
+
+                // declaring variables for the function
+                let myNumber = document.getElementById("txtMyNumber").value;
+                const rnd = Math.floor((Math.random() * 10) + 1); // generate a random number between 1 and 10
+                let results;
+
+                // if statement to determine if player guess: high, low, or correct
+                if (myNumber > rnd) {
+                    results = "The number is less than " + myNumber;
+                } else if (myNumber < rnd) {
+                    results = "The number is greater than " + myNumber;
+                } else {
+                    results = "Congratulations! You picked the correct number!";
+                }
+
+                // calls the function in the card
+                document.getElementById("result").innerHTML = results;
+            }
+        </script>
+
+    
+        <div id="card">
+            <div id="card-title">Results</div>
+            <p id="result"></p>
+        </div>
+    </div>
+  </body>
+
+   
