@@ -1,0 +1,14 @@
+/**
+     Title: Palmer-sequence-game.css
+     Author: Mark Palmer
+     Date: 02/06/2021
+     Description: Styling for the palmer-sequence-game.html file
+*/
+
+body {
+  font-family: "Oswald", sans-serif;
+}
+#result {
+  font-size: 28px;
+  text-align: center;
+}

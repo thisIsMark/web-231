@@ -1,0 +1,93 @@
+<!--
+ =============================================
+  Title: palmer-sequence-game.html
+  Author: Mark Palmer 
+  Date: 2/6/2021 
+  Description: Sequence Game App
+=============================================
+-->
+<html lang="en">
+  <head>
+      <title>Palmer Sequence Game!</title>
+    <link
+    href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&display=swap"
+    rel="stylesheet"
+  />
+    <link href="Palmer-sequence-game.css" type="text/css" rel="stylesheet" />
+    <link href="../global.css" type="text/css" rel="stylesheet" />
+  </head>
+
+  <body>
+    
+    <div id="container">
+        <h1 class="app-header">Welcome to the sequence game!</h1>
+        <div id="card">
+
+        <div id="card-title">Sequence Selection Form</div>
+
+            <div class="form-field">
+                <label for="sequence">Choose a number sequence</label>
+                <select id="sequence" name="sequence" class="drop-down-menu">
+                  <option value="select">--Select--</option>
+                  <option value="fibonacci">Fibonacci Sequence</option>
+                  <option value="even">Even Numbers</option>
+                  <option value="odd">Odd Numbers</option>
+                </select>
+            </div>
+            <div class="form-field">
+                <button onclick="sequence()" id="btnDisplaySequence" type="submit" class="btn btn-primary full-width">
+                    Display Sequence
+                </button>
+            </div> 
+        </div>
+    
+        <div id="card">
+            <div id="card-title">Sequence Results</div>
+            <p id="result"></p>
+        </div>
+    </div>
+
+    <div class="container">
+        <a href="../week-1/index.html" class="return-home">Return</a>
+    </div>
+
+    <script>
+        function sequence() {
+
+            // declaring variables for the function
+            let choice = document.getElementById("sequence").value;
+            let results;
+            if (choice === "fibonacci") {
+                let num1 = 0, num2 = 1, next = "";
+                let fibonacciSequenceText = new String();
+                while(num1 < 40){
+                    fibonacciSequenceText += num1 + ", ";
+                    next = num1 + num2;
+                    num1 = num2;
+                    num2 = next;
+                }
+                results = fibonacciSequenceText.slice(0, -2);
+            } else if (choice === "even") {
+                let i = 2;
+                let even = new String();
+                do {
+                    even += i + ", ";
+                    i += 2;
+                    }
+                while (i < 20);
+                results = even.slice(0, -2);
+            } else if (choice === "odd") {
+                var i;
+                var odd = new String();
+                for (i = 1; i < 20; i+=2) {
+                     odd += i + ", ";
+                    }
+                results = odd.slice(0, -2);
+            } else {
+                results = alert("Invalid selection, please try again!") + location.reload();
+            }
+            document.getElementById("result").innerHTML = results;
+        }
+    </script>
+
+  </body>
