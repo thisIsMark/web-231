@@ -1,0 +1,184 @@
+<!--
+ =============================================
+  Title: Palmer-in-n-out-books.html
+  Author: Mark Palmer 
+  Date: 2/10/2021 
+  Description: In n Out Books app
+=============================================
+-->
+
+<html lang="en">
+  <head>
+      <title>Palmer In-N-Out-Books</title>
+    <link
+    href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&display=swap"
+    rel="stylesheet"
+  />
+    <link href="Palmer-in-n-out-books.css" type="text/css" rel="stylesheet" />
+    <link href="../global.css" type="text/css" rel="stylesheet" />
+  </head>
+    
+  <body>
+    <div id="container">
+        <h1 class="app-header">Welcome to In-N-Out-Books</h1>
+        <div id="card">
+            <div id="card-title">My Favorites</div>
+            <div class="form-field">
+                <label for="favoriteList">Choose a listing</label>
+                <select id="favoriteList" name="favoriteList" class="drop-down-menu">
+                    <option value="select">--Select--</option>
+                    <option value="books">Top 3 Favorite Books</option>
+                    <option value="authors">Top 3 Favorite Authors</option>
+                </select>
+            </div>
+            <div class="form-field">
+                <button onclick="favorite()" id="btnDisplayListing" type="submit" class="btn btn-primary full-width">
+                    Display Listing
+                </button>
+            </div> 
+        </div>
+    </div>
+    <div id="container">
+        <a href="../week-1/index.html" class="return-home">Return</a>
+    </div>
+
+
+    <div id="favorite-books">
+        <div id="card">
+            <div id="card-title">Top 3 Favorite Books</div>
+            <div class="container">
+            <table>
+                <tr>
+                    <th>ISBN</th>
+                    <th>Title<th>
+                    <th>Pages</th>
+                </tr>
+                <tr>
+                    <td id="txtWitcherISBN"></td>
+                    <td id="txtWitcherTitle"></td>
+                    <td id="txtWitcherPages"></td>
+                </tr>
+                <tr>
+                    <td id="txtHarryISBN"></td>
+                    <td id="txtHarryTitle"></td>
+                    <td id="txtHarryPages"></td>
+                </tr>
+                <tr>
+                    <td id="txtMedISBN"></td>
+                    <td id="txtMedTitle"></td>
+                    <td id="txtMedPages"></td>
+                </tr>
+            </table>
+        </div>
+     </div>
+</div>
+
+    <div id="favorite-authors">
+        <div id="card">
+            <div id="card-title">Top 3 Favorite Authors</div>
+            <div class="container">
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <th>Genre<th>
+                </tr>
+                <tr>
+                    <td id="txtAuthor1Name"></td>
+                    <td id="txtAuthor1Genre"></td>
+                </tr>
+                <tr>
+                    <td id="txtAuthor2Name"></td>
+                    <td id="txtAuthor2Genre"></td>
+                </tr>
+                <tr>
+                    <td id="txtAuthor3Name"></td>
+                    <td id="txtAuthor3Genre"></td>
+                </tr>
+                </table>
+            </div>
+            </div>
+        </div>
+    </body>
+</html>
+<!--Book Objects check for onload-->
+<script>
+    //book object literals
+     let witcher = {
+        isbn: 9780316029186,
+        title: "The Last Wish",
+        pages: 384,
+     };
+     let harry = {
+         isbn: 9780439136350,
+         title: "The Prisoner of Azkaban",
+         pages: 435,
+     };
+     let meditations = {
+        isbn: 9780812968255,
+        title: "Meditations",
+        pages: 256,
+     };
+     
+     //author object literals
+     let author1 = {
+         name: "Andrzej Sapkowski",
+         genre: "Fantasy",
+
+     };
+     let author2 = {
+         name: "J.K. Rowling",
+         genre: "Fantasy",
+
+     };
+     let author3 = {
+         name: "Marcus Aurelius",
+         genre: "Philosophy",
+
+     };
+
+     // assigning properties to td tags (books)
+    document.getElementById("txtWitcherISBN").innerHTML = witcher.isbn;
+    document.getElementById("txtWitcherTitle").innerHTML = witcher.title;
+    document.getElementById("txtWitcherPages").innerHTML = witcher.pages;
+
+    document.getElementById("txtHarryISBN").innerHTML = harry.isbn;
+    document.getElementById("txtHarryTitle").innerHTML = harry.title;
+    document.getElementById("txtHarryPages").innerHTML = harry.pages;
+
+    document.getElementById("txtMedISBN").innerHTML = meditations.isbn;
+    document.getElementById("txtMedTitle").innerHTML = meditations.title;
+    document.getElementById("txtMedPages").innerHTML = meditations.pages;
+
+    //assigning properties to td tags (authors)
+    document.getElementById("txtAuthor1Name").innerHTML = author1.name;
+    document.getElementById("txtAuthor1Genre").innerHTML = author1.genre;
+
+    document.getElementById("txtAuthor2Name").innerHTML = author2.name;
+    document.getElementById("txtAuthor2Genre").innerHTML = author2.genre;
+
+    document.getElementById("txtAuthor3Name").innerHTML = author3.name;
+    document.getElementById("txtAuthor3Genre").innerHTML = author3.genre;
+
+    let books = document.getElementById("favorite-books");
+    let authors = document.getElementById("favorite-authors");
+
+    books.style.display = "none";
+    authors.style.display = "none";
+
+     function favorite() {
+
+        let choice = document.getElementById("favoriteList").value;
+
+            if (choice === "books") {
+                
+                books.style.display = "block";
+                authors.style.display = "none";
+
+         }  else if (choice === "authors") {
+            
+                authors.style.display = "block";
+                books.style.display = "none";
+     }
+    }
+
+</script>
