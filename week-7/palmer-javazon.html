@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<!--
+ =============================================
+  Title: Palmer-javazon.html
+  Author: Mark Palmer 
+  Date: 2/20/2021 
+  Description: Javazon app
+=============================================
+-->
+<html>
+    <head>
+        <title>Temperature Conversion App</title>
+      <link
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+      <link href="palmer-javazon.css" type="text/css" rel="stylesheet" />
+      <link href="../global.css" type="text/css" rel="stylesheet" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" />
+    </head>
+    <body onload="javazon()">
+        <div id="container">
+            <h1 class="app-header">Welcome ot the Javazon App!</h1>
+            <div id="card">
+                <div id="card-title">Javazon Selection Form</div>
+                <div class="form-field">
+                    <label for="favoriteList">Choose a listing</label>
+                    <select id="listing" name="listing" class="drop-down-menu">
+                        <option value="select">--Select--</option>
+                        <option value="products">Products</option>
+                        <option value="services">Services</option>
+                        <option value="employees">Employees</option>
+                    </select>
+                </div>
+                <div class="form-field">
+                    <button onclick="javazon()" id="btnDisplayListing" type="submit" class="btn btn-primary full-width">
+                        Display Listing
+                    </button>
+                </div> 
+            </div>
+        </div>
+        <div id="container">
+            <a href="../week-1/index.html" class="return-home">Return</a>
+        </div>
+
+    <div id="favorite-books">
+    <div id="card">
+            <div class="products">
+            <div id="card-title">Javazon Products</div>
+            <div class="container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Description</th>
+                            <th>Price</th>
+                            <th>Quantity</th>
+                        </tr>
+                    </thead>
+
+                    
+                </table>
+            </div>
+         </div>
+    </div>
+</div>
+    <div>
+        <div id="card">
+            <div class="services">
+            <div id="card-title">Javazon Services</div>
+            <div class="container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Description</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                    </tr>
+                </thead>
+
+
+                
+
+            </table>
+        </div>
+     </div>
+</div>
+</div>
+    <div id="card">
+        <div class="employees">
+        <div id="card-title">Javazon Employees</div>
+        <div class="container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Description</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                </tr>
+            </thead>
+            
+
+        </table>
+    </div>
+ </div>
+</div>
+    
+    </body>
+</html>
+
+<script>
+
+
+
+    //Product Service and Employee classes
+    class Product {
+        constructor(id, description, price, quantity) {
+            this.id = id;
+            this.description = description;
+            this.price = price;
+            this.quantity = quantity;
+
+            let totalValue = quantity * price;
+            totalValue = totalValue.toFixed(2);
+        }
+    }
+    class Service {
+        constructor(id, description, hourlyRate, min) {
+            this.id = id;
+            this.description = description;
+            this.hourlyRate = hourlyRate;
+            this.min = min;
+
+            hourlyRate = hourlyRate.toFixed(2);
+        }
+    }
+    class Employee {
+        constructor(id, firstName, lastName, salary) {
+            this.id = id;
+            this.firstName = firstName;
+            this.lastName = lastName;
+            this.salary = salary;
+
+            salary = salary.toFixed(2);
+        }
+    }
+
+    let productsArray = [];
+    let servicesArray = [];
+    let employeesArray = [];
+
+    function addProduct(id, description, price, quantity) {
+        let p = new Product(id, description, price, quantity);
+        productsArray.push(p);
+    }
+    function addService(id, description, hourlyRate, min) {
+        let s = new Service(id, description, hourlyRate, min);
+        servicesArray.push(s);
+    }
+    function addEmployee(id, firstName, lastName, salary) {
+        let e = new Employee(id, firstName, lastName, salary);
+        employeesArray.push(e);
+    }
+
+    //Constructor Objects for all three classes
+    addProduct(9781118008188, "HTML and CSS: Design and Build Websites", 22.26, 10);
+    addProduct(9781491952023, "JavaScript: The Definitive Guide 7/E", 41.33, 7);
+    addProduct(9781449331818, "Learning JavaScript Design Patterns 1/E", 25.99, 3);
+    addProduct(9781617292422, "Express in Action, building, and testing Node.js applications 1/E", 33.70, 8);
+    addProduct(9781491954461, "MongoDB The Definitive Guide", 33.70, 8);
+
+    addService(100, "Website Design", 150, 25);
+    addService(101, "DevOps Consulting", 125, 50);
+    addService(102, "Database Design", 125, 15);
+
+    addEmployee(1007, "Beethoven", "Ludwig", 13.99);
+    addEmployee(1008, "Bach", "Johann", 22.30);
+    addEmployee(1009, "Mozart", "Wolfgang", 19.50);
+    addEmployee(1010, "Brahms", "Johannes", 12);
+    addEmployee(1011, "Haydn", "Joseph", 32.50);
+
+
+
+    let results = "";
+
+
+    function javazon() {
+
+    document.getElementById("btnDisplayListing").value = choice;
+        
+    let products = document.getElementById("products");
+    let services = document.getElementById("services");
+    let employees = document.getElementById("employees");
+
+        //products.style.display = "none";
+        //services.style.display = "none";
+        //employees.style.display = "none";
+
+        let productOutput;
+
+        productsArray.forEach((product)=> {
+            product.id + 
+        })
+
+        //log all arrays of objects
+        productsArray.forEach((product)=>console.log(product.id, product.description, product.price, product.quantity));
+        servicesArray.forEach((service)=>console.log(service.id, service.description, service.hourlyRate, service.min));
+        employeesArray.forEach((employee)=>console.log(employee.id, employee.firstName, employee.lastName, employee.salary));
+    }
+
+    choice = results;
+ 
+</script>
