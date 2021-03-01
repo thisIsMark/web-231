@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<!--
+ =============================================
+  Title: Palmer-in-n-out-books.html
+  Author: Mark Palmer 
+  Date: 2/10/2021 
+  Description: In n Out Books app
+=============================================
+-->
+<html>
+    <head>
+        <title>Alphabet Game</title>
+      <link
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+      <link href="Palmer-alphabet-game.css" type="text/css" rel="stylesheet" />
+      <link href="../global.css" type="text/css" rel="stylesheet" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" />
+    </head>
+    <body onload="alpha()">
+
+        <div id="container">
+            <h1 class="app-header">Welcome to the Alphabet Game!</h1>
+            <div id="card">
+    
+            <div id="card-title">Alphabet Number Form</div>
+    
+                <div class="form-field">
+                    <label for="txtPosition">Alphabet Letter Position</label>
+                    <input
+                    type="text"
+                    id="txtPosition"
+                    class="input"
+                  />
+                </div>
+                <div class="form-field">
+                    <button onclick="result()" id="btnFindLetter" type="submit" class="btn btn-primary full-width">
+                        Find Letter
+                    </button>
+                </div> 
+            </div>
+        </div>
+    
+        <div class="container">
+            <a href="../week-1/index.html" class="return-home">Return</a>
+        </div>
+                
+        <div id="card">
+            <div id="card-title">Letters in the alphabet</div>
+            <div id="caard-content">
+            <div id="alphabet">
+            </div>
+            </div>
+        </div>
+        <div id="card">
+            <div id="card-title">Results</div>
+            <div id="alphabet-letter">
+            </div>
+        </div>
+
+    </body>
+</html>
+
+<script>
+        //Alphabet Array
+let alphabet = [..."ABCDEFGHIJKLMNOPQRSTUVWXYZ"];
+
+function alpha() {
+    let alphabetOutput = "";
+    var x;
+    alphabet.unshift("");
+        //For in loop returns each letter separately followed by a comma
+    for (x in alphabet) {
+        alphabetOutput += alphabet[x] + ", ";
+        alphabetOutput = alphabet.slice(1); 
+    }
+
+  //sets the html id alphabet div to alphabetOutput
+  document.getElementById("alphabet").innerHTML = alphabetOutput;
+  //test for alphabet array output
+  console.log(x);
+  //test for alphabetOutput string
+  console.log(alphabetOutput);
+}
+
+
+function result() {
+    let pos = document.getElementById("txtPosition").value;
+    let letter;
+    letter = alphabet[pos];
+
+    let results;
+  
+  if (letter === undefined) {
+    results = "There are not " + pos + " letters in the alphabet";
+  } else {
+    results = letter + " is at position " + pos + " in the alphabet."; 
+  }
+    document.getElementById("alphabet-letter").innerHTML = results;
+
+    console.log("pos = " + pos);
+  console.log("letter = " + letter);
+}
+
+</script>
