@@ -9,7 +9,7 @@
 -->
 <html>
     <head>
-        <title>Temperature Conversion App</title>
+        <title>Javazon App</title>
       <link
       href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&display=swap"
       rel="stylesheet"
@@ -20,7 +20,7 @@
     </head>
     <body onload="javazon()">
         <div id="container">
-            <h1 class="app-header">Welcome ot the Javazon App!</h1>
+            <h1 class="app-header">Welcome to the Javazon App!</h1>
             <div id="card">
                 <div id="card-title">Javazon Selection Form</div>
                 <div class="form-field">
@@ -42,88 +42,51 @@
         <div id="container">
             <a href="../week-1/index.html" class="return-home">Return</a>
         </div>
-
-    <div id="favorite-books">
     <div id="card">
-            <div class="products">
-            <div id="card-title">Javazon Products</div>
-            <div class="container">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Id</th>
-                            <th>Description</th>
-                            <th>Price</th>
-                            <th>Quantity</th>
-                        </tr>
-                    </thead>
-
+            <div>
+                <div id="card-title">Javazon Products</div>
+                <table id="product">
                     
+
                 </table>
-            </div>
          </div>
     </div>
-</div>
-    <div>
-        <div id="card">
-            <div class="services">
-            <div id="card-title">Javazon Services</div>
-            <div class="container">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Id</th>
-                        <th>Description</th>
-                        <th>Price</th>
-                        <th>Quantity</th>
-                    </tr>
-                </thead>
-
-
-                
-
-            </table>
-        </div>
-     </div>
-</div>
-</div>
     <div id="card">
-        <div class="employees">
-        <div id="card-title">Javazon Employees</div>
-        <div class="container">
-        <table>
-            <thead>
-                <tr>
-                    <th>Id</th>
-                    <th>Description</th>
-                    <th>Price</th>
-                    <th>Quantity</th>
-                </tr>
-            </thead>
-            
+            <div>
+                <div id="card-title">Javazon Services</div>
+                <table id="service">
+                    
 
-        </table>
+                </table>
+         </div>
     </div>
- </div>
-</div>
+    <div id="card">
+            <div>
+                <div id="card-title">Javazon Employees</div>
+                <table id="employee">
+                    
+
+                </table>
+         </div>
+    </div>
     
-    </body>
+</body>
 </html>
 
 <script>
-
-
-
     //Product Service and Employee classes
     class Product {
-        constructor(id, description, price, quantity) {
+        constructor(id, description, price, quantity,) {
             this.id = id;
             this.description = description;
             this.price = price;
             this.quantity = quantity;
-
-            let totalValue = quantity * price;
-            totalValue = totalValue.toFixed(2);
+        }
+        get totalValue() {
+            return this.calcTotal();
+        }
+        calcTotal() {
+            return ((this.price * this.quantity).toFixed(2));
         }
     }
     class Service {
@@ -151,8 +114,8 @@
     let servicesArray = [];
     let employeesArray = [];
 
-    function addProduct(id, description, price, quantity) {
-        let p = new Product(id, description, price, quantity);
+    function addProduct(id, description, price, quantity, totalValue) {
+        let p = new Product(id, description, price, quantity, totalValue);
         productsArray.push(p);
     }
     function addService(id, description, hourlyRate, min) {
@@ -181,35 +144,75 @@
     addEmployee(1010, "Brahms", "Johannes", 12);
     addEmployee(1011, "Haydn", "Joseph", 32.50);
 
+    function generateTableHead(table, data) {
+        let thead = table.createTHead();
+        let row = thead.insertRow();
 
+        for (let key of data) {
+            let th = document.createElement("th");
+            let text = document.createTextNode(key);
+            th.appendChild(text);
+            row.appendChild(th);
+        }
+    }
+    function generateTable(table, data) {
+        for (let element of data) {
+            let row = table.insertRow();
+            for (key in element) {
+                let cell = row.insertCell();
+                let text = document.createTextNode(element[key]);
+                cell.appendChild(text);
+            }
+        }
+    }
 
-    let results = "";
+    let table = document.querySelector("#product");
+    let data = Object.keys(productsArray[0]);
 
+    generateTable(table, productsArray);
+    generateTableHead(table, data);
+    productTable = document.getElementById("product");
+    productTable.style.display = "none";
+
+    table = document.querySelector("#service");
+    data = Object.keys(servicesArray[0]);
+    generateTable(table, servicesArray);
+    generateTableHead(table, data);
+    serviceTable = document.getElementById("service");
+    serviceTable.style.display = "none";
+
+    table = document.querySelector("#employee");
+    data = Object.keys(employeesArray[0]);
+    generateTable(table, employeesArray);
+    generateTableHead(table, data);
+    employeeTable = document.getElementById("employee");
+    employeeTable.style.display = "none";
 
     function javazon() {
-
-    document.getElementById("btnDisplayListing").value = choice;
-        
-    let products = document.getElementById("products");
-    let services = document.getElementById("services");
-    let employees = document.getElementById("employees");
-
-        //products.style.display = "none";
-        //services.style.display = "none";
-        //employees.style.display = "none";
-
-        let productOutput;
-
-        productsArray.forEach((product)=> {
-            product.id + 
-        })
+        choice = document.getElementById("listing").value;
+        switch (choice) {
+        case "products":
+        productTable.style.display = "table";
+        serviceTable.style.display = "none";
+        employeeTable.style.display = "none";
+        break;
+        case "services":
+        serviceTable.style.display = "table";
+        productTable.style.display = "none";
+        employeeTable.style.display = "none";
+        break;
+        case "employees":
+        employeeTable.style.display = "table";
+        serviceTable.style.display = "none";
+        productTable.style.display = "none";
+        break;
+        default:
+    }
 
         //log all arrays of objects
-        productsArray.forEach((product)=>console.log(product.id, product.description, product.price, product.quantity));
+        productsArray.forEach((product)=>console.log(product.id, product.description, product.price, product.quantity, product.totalValue));
         servicesArray.forEach((service)=>console.log(service.id, service.description, service.hourlyRate, service.min));
         employeesArray.forEach((employee)=>console.log(employee.id, employee.firstName, employee.lastName, employee.salary));
     }
-
-    choice = results;
  
 </script>

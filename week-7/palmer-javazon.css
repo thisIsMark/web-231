@@ -8,8 +8,26 @@
 body {
   font-family: "Oswald", sans-serif;
 }
+table {
+  width: 100%;
+  border-collapse: collapse;
 
-#conversion {
-  font-size: 28px;
-  text-align: center;
+  margin-bottom: 30px;
+}
+th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4f3674;
+  color: white;
+}
+th,
+tr,
+td {
+  border: 1px solid #ddd;
+}
+tr:hover {
+  background-color: #d6a800;
+  color: #4f3674;
+  cursor: pointer;
 }
