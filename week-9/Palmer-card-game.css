@@ -1,0 +1,24 @@
+/**
+     Title: Palmer-in-n-out-books.css
+     Author: Mark Palmer
+     Date: 02/10/2021
+     Description: Styling for the Palmer-in-n-out-books.html file
+*/
+
+body {
+  font-family: "Oswald", sans-serif;
+}
+#card {
+  font-size: 28px;
+  text-align: center;
+}
+#card button {
+  width: 100%;
+}
+.return-home {
+  margin-top: 1em;
+  padding: 1em;
+}
+#player-card {
+  text-align: center;
+}
