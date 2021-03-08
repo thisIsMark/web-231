@@ -5,20 +5,37 @@
      Description: Styling for the Palmer-in-n-out-books.html file
 */
 
+/** Grab Google fonts */
 body {
   font-family: "Oswald", sans-serif;
 }
+.app-header {
+  text-align: center;
+}
+.return-home {
+  margin-left: 25%;
+}
 #card {
   font-size: 28px;
+  margin: auto;
   text-align: center;
 }
 #card button {
-  width: 100%;
+  width: 90%;
 }
 .return-home {
   margin-top: 1em;
   padding: 1em;
 }
-#player-card {
+.player-card {
   text-align: center;
+}
+.card-content {
+  padding: 2px 16px;
+}
+#player-card-container {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  grid-gap: 10px 10px;
+  padding: 10px;
 }
