@@ -8,62 +8,69 @@
 =============================================
 -->
 
-<html>
+<html lang="en-US">
     <body>
         <head>
-            <title>Card Game</title>
-          <link
-          href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&display=swap"
-          rel="stylesheet"
-        />
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-        rel="stylesheet">
+            <title>Card Game - Mark Palmer</title>
 
-          <link href="Palmer-card-game.css" type="text/css" rel="stylesheet" />
-          <link href="../global.css" type="text/css" rel="stylesheet" />
-          <link rel="preconnect" href="https://fonts.gstatic.com" />
+            <meta charset="UTF-8">
+            <!-- Google Fonts -->
+            <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&display=swap" rel="stylesheet"/>
+
+            <!-- Material Design Icons Link -->
+            <link href="https://cdn.jsdelivr.net/npm/@mdi/font@5.9.55/css/materialdesignicons.min.css" rel="Stylesheet">
+            <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+            <!-- Link to styling sheets -->
+            <link href="Palmer-card-game.css" type="text/css" rel="stylesheet" />
+            <link href="../global.css" type="text/css" rel="stylesheet" />
+            <link rel="preconnect" href="https://fonts.gstatic.com" />
         </head>
-            <div id="container">
-                <h1 class="app-header">Welcome to the Card Game!</h1>
-                <div id="card">
-                    <div class="card-title">Card Dealer</div>
-                    <div class="form-field">
+        
+        <!-- Program Opening -->
+        <div id="container">
+            <h1 class="app-header">Welcome to the Card Game!</h1>
+            <div id="card">
+                <div class="card-title">Card Dealer</div>
+                <div class="card-content" class="Dealer">
                         <button id="btnDealCards" type="submit" class="btn btn-primary full-width">
                             Deal Cards
                         </button>
-                    </div> 
-                </div>
-
+                </div> 
+            </div>
+        </div>
         
+        <!-- Return to Landing Page -->
         <div class="container">
             <a href="../week-1/index.html" class="return-home">Return</a>
         </div>
 
         <div class="card">
             <div class="card-title">Shuffled Cards</div>
-            <div id="player-card">
-
+            <div id="player-card-container">
+                <!-- Javascript Logic -->
             </div>
         </div>
-    </div>
+
     </body>
 </html>
 
 <script>
-
+    // Card class
     class Card {
-        constructor(face, suit) {
-            this.face = face;
-            this.suit = suit;
+        constructor(faces, suits) {
+            this.faces = faces;
+            this.suits = suits;
         }
     }
+    // Dealer Class
     class Dealer {
     
         constructor() 
         {
+            // Call getDeckOfCards inside constructor
             this.getDeckOfCards();
         }
-        //declare variables for card game
+        //Declare variables for card game
         cards = [];
         faces = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"];
         suits = ["Hearts", "Diamonds", "Clubs", "Spades"];
@@ -85,39 +92,45 @@
                 this.cardOutput();
 
             }
-                buildPlayingCard (card, suitIcon, faceColor, suitColor) {
-                    return  '<div class="player-card" style="width:100%">'
-                                '<div id="card-title" style="text-align:left; font-size:20px; padding-left:10px; color: ${faceColor};">${card.face}</div>'
-                                '<div id="card-content" style="font-size:28px;padding-bottom:25px"><span style="color:${suitColor};" class="${suitIcon}"></span></div></div>'
+                buildPlayingCard (cardFace, suitIcon, faceColor, suitColor) {
+                    return  `<div class="card player-card" style="width:100%">
+                    <div class="card-title" style="text-align:left; font-size:20px; padding-left:10px; color:${faceColor};">
+                    ${cardFace} 
+                     </div>
+                     <div class="card-content" style="font-size:28px; padding-bottom:25px">
+                       
+                            <span class="${suitIcon}" style="color:${suitColor}">
+                            </span>
+                    </div>
+                </div>`
                 }
 
         cardOutput() {
-
             let cardOutputWithIcon = "";
+            this.cards.forEach((card) => {
 
             switch (card.suits) {
                 case "Hearts":
                     cardOutputWithIcon += this.buildPlayingCard(card.faces, "mdi mdi-cards-heart", "red", "red");
                 break;
                 case "Diamonds":
-                    cardOutputWithIcon += this.buildPlayingCard(card.faces, "mdi mdi-cards-diamonds", "red", "red");
+                    cardOutputWithIcon += this.buildPlayingCard(card.faces, "mdi mdi-cards-diamond", "red", "red");
                 break;
                 case "Clubs":
-                    cardOutputWithIcon += this.buildPlayingCard(card.faces, "mdi", "mdi-cards-club", "black", "black");
+                    cardOutputWithIcon += this.buildPlayingCard(card.faces, "mdi mdi-cards-club", "black", "black");
+                break;
                 case "Spades":
-                    cardOutputWithIcon += this.buildPlayingCard(card.faces, "mdi", "mdi-cards-spade", "black", "black");
+                    cardOutputWithIcon += this.buildPlayingCard(card.faces, "mdi mdi-cards-spade", "black", "black");
                 break;
             }
+        });
 
-            document.getElementById("player-card").innerHTML = cardOutputWithIcon;
+            document.getElementById("player-card-container").innerHTML = cardOutputWithIcon;
         }
     }
 
     document.getElementById("btnDealCards").onclick = function() {
-
-        let deck = new Dealer().shuffle();
-    }
-
-
-
+        new Dealer().shuffle()
+        console.log(card);
+    };
 </script>
