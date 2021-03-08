@@ -27,7 +27,7 @@ body {
   margin-top: 1em;
   padding: 1em;
 }
-.player-card {
+#player-card {
   text-align: center;
 }
 .card-content {
